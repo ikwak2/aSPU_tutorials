@@ -75,7 +75,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 <p>We mapped 34 rs-ids from <a href="mappingSnpToGene2.html">Mapping Snp to Gene</a> tutorial. <a href="myrsidout.genes.annot" class="uri">myrsidout.genes.annot</a></p>
-<p>I prepared 6 multi-trait sumarry statistic data for 34 rs-ids, <a href="exdat.txt" class="uri">exdat.txt</a>.</p>
+<p>I prepared 6 multi-trait sumarry statistic data for 34 rs-ids, <a href="data/exdat.txt">exdat.txt</a>.</p>
 <pre><code>bash-3.2$ head exdat.txt
 rs3121561       1       990380  0.38    0.14    0.012   0.070   0.64    0.81
 rs2799064       1       957898  0.58    0.18    0.61    0.79    0.83    0.73
@@ -88,7 +88,7 @@ rs7515488       1       1163804 0.13    0.87    0.11    0.96    0.42    0.11
 rs3813199       1       1158277 0.20    0.64    0.27    0.65    0.40    0.65
 rs6603781       1       1158631 0.33    0.68    0.90    0.37    0.35    0.79
 </code></pre>
-<p>I made a Perl program, <a href="processGene.pl" class="uri">processGene.pl</a>, to process magma outcome, <a href="myrsidout.genes.annot" class="uri">myrsidout.genes.annot</a>. The Usage is : ./processGene.pl “Magma Result” “Folder Name”</p>
+<p>I made a Perl program, <a href="processGene.pl" class="uri">processGene.pl</a>, to process magma outcome, <a href="data/myrsidout.genes.annot">myrsidout.genes.annot</a>. The Usage is : ./processGene.pl “Magma Result” “Folder Name”</p>
 <pre><code>bash-3.2$ ./processGene.pl myrsidout.genes.annot exGenes
 SSU72  25</code></pre>
 <p>It also shows a Gene name with maximum number of SNPs are mapped. The biggest gene in our example is <em>SSU72</em> which have 25 SNPs mapped. The program make <code>exGenes</code> directory and save results there.</p>
@@ -99,11 +99,11 @@ bash-3.2$ head AGRN.txt
 rs3121561
 rs2799064
 rs3128126</code></pre>
-<p>As you can check from the code above. <a href="AGRN.txt" class="uri">AGRN.txt</a> file have rs-ids mapped.</p>
+<p>As you can check from the code above. <a href="data/AGRN.txt">AGRN.txt</a> file have rs-ids mapped.</p>
 <p>After running this perl code, I write a R function as follows. Take gene <em>AGRN</em> for example to explain. You can change gene name in the code for other genes.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(aSPU)
 g &lt;-<span class="st"> &quot;AGRN&quot;</span></code></pre></div>
-<p>Assume we already calculated correlation between phenotypes from the whole population. <a href="exvarPhe.txt" class="uri">exvarPhe.txt</a></p>
+<p>Assume we already calculated correlation between phenotypes from the whole population. <a href="data/exvarPhe.txt">exvarPhe.txt</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">varPhe &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(<span class="kw">read.table</span>(<span class="st">&quot;exvarPhe.txt&quot;</span>))
 varPhe</code></pre></div>
 <pre><code>##                V1    V2    V3    V4   V5    V6
@@ -113,14 +113,14 @@ varPhe</code></pre></div>
 ##        [4,]  0.30 -0.01  0.29  1.00 0.29  0.32
 ##        [5,]  0.66  0.04  0.21  0.29 1.00  0.02
 ##        [6,]  0.03 -0.01 -0.02  0.32 0.02  1.00</code></pre>
-<p>Using awk command I took subdata for <em>AGRN</em> on <a href="subdatAGRN.txt" class="uri">subdatAGRN.txt</a> from <a href="exdat.txt" class="uri">exdat.txt</a>.</p>
+<p>Using awk command I took subdata for <em>AGRN</em> on <a href="data/subdatAGRN.txt">subdatAGRN.txt</a> from <a href="data/exdat.txt">exdat.txt</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    tof &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;subdat&quot;</span>,g,<span class="st">&quot;.txt&quot;</span>,<span class="dt">sep =</span><span class="st">&quot;&quot;</span>)
     cmd2run &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;awk 'NR==FNR {h[$1] = $1; next} h[$1] !=</span><span class="ch">\&quot;\&quot;</span><span class="st"> {print $0}' exGenes/&quot;</span>,g,<span class="st">&quot;.txt exdat.txt &gt;&quot;</span>, tof, <span class="dt">sep=</span><span class="st">&quot;&quot;</span>)
     <span class="kw">system</span>(cmd2run)
 
     sdat &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span>tof, <span class="dt">colClasses=</span><span class="kw">c</span>(<span class="st">&quot;character&quot;</span>, <span class="st">&quot;numeric&quot;</span>, <span class="st">&quot;numeric&quot;</span>, <span class="st">&quot;numeric&quot;</span>, <span class="st">&quot;numeric&quot;</span>, <span class="st">&quot;numeric&quot;</span>, <span class="st">&quot;numeric&quot;</span>, <span class="st">&quot;numeric&quot;</span>, <span class="st">&quot;numeric&quot;</span>, <span class="st">&quot;character&quot;</span>, <span class="st">&quot;character&quot;</span>)  )
         <span class="kw">system</span>(<span class="kw">paste</span>(<span class="st">&quot;rm&quot;</span>,tof) )</code></pre></div>
-<p>Again, using awk command, I took subdata for <em>AGRN</em>, <a href="tempdataAGRN.txt" class="uri">tempdataAGRN.txt</a>, from reference panel, <a href="SubsetCh1.txt" class="uri">SubsetCh1.txt</a>.</p>
+<p>Again, using awk command, I took subdata for <em>AGRN</em>, <a href="data/tempdataAGRN.txt">tempdataAGRN.txt</a>, from reference panel, <a href="data/SubsetCh1.txt">SubsetCh1.txt</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    snpids &lt;-<span class="st"> </span>sdat[,<span class="dv">1</span>]
     tempf =<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;tempids&quot;</span>,g,<span class="st">&quot;.txt&quot;</span> , <span class="dt">sep=</span><span class="st">&quot;&quot;</span>)
     <span class="kw">write.table</span>(snpids,  <span class="dt">file =</span> tempf, <span class="dt">row.names=</span><span class="ot">FALSE</span>, <span class="dt">col.names=</span><span class="ot">FALSE</span>, <span class="dt">quote=</span><span class="ot">FALSE</span> )
