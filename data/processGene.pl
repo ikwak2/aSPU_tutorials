@@ -1,5 +1,8 @@
 #!/usr/bin/perl
 
+# ./processGene.pl <MAGMA output> <Folder name>
+# will create <Folder name> folder and save results of MAGMA output
+
 my $filename = $ARGV[0];
 my $dir = $ARGV[1];
 mkdir $dir;
