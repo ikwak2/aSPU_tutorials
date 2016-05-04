@@ -92,14 +92,14 @@ rs3766180
 <pre><code>bash-3.2$ awk 'NR==FNR {h[$1] = $0; next} h[$1] !=&quot;&quot; {print h[$1]}' SubsetCh1.txt SSU72.txt &gt; SubsetSSU72.txt
 </code></pre>
 <p>Among 23 SNPs in SSU72, 22 SNPs were in 1000 human genome panel and sub data saved in <a href="data/SubsetSSU72.txt">SubsetSSU72.txt</a>.</p>
-<p>The reason I do this in bash command is that it is simple and fast. reading 1000 human genome project data in R and mapping in R takes a lot of time. On the other hand, it can be done in some seconds using bash.</p>
+<p>The reason I do this in bash command is that it is simple and fast. reading 1000 human genome project data in R and mapping it in R takes a lot of time. On the other hand, it can be done in few seconds using bash.</p>
 <p>Now, we can use R to estimate correlation among SNPs.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">locdat &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span><span class="st">&quot;SubsetSSU72.txt&quot;</span>)
 datn &lt;-<span class="st"> </span><span class="kw">t</span>(<span class="kw">matrix</span>(<span class="kw">as.numeric</span>(<span class="kw">as.matrix</span>(locdat[,<span class="dv">3</span>:<span class="dv">381</span>])), <span class="kw">dim</span>(locdat)[<span class="dv">1</span>],<span class="dv">379</span>))
 <span class="kw">colnames</span>(datn) &lt;-<span class="st"> </span>locdat[,<span class="dv">1</span>]
 <span class="kw">dim</span>(datn)</code></pre></div>
 <pre><code>## [1] 379  22</code></pre>
-<p>We also need to save minor alleles used in 0,1,2 coding because we have to alter 0 to 2 if minor alleles used are different.</p>
+<p>We also need to save minor alleles used in 0,1,2 coding because we have to alter 0 and 2 if minor alleles used are different.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">usedallele &lt;-<span class="st"> </span><span class="kw">as.character</span>(locdat[,<span class="dv">2</span>])
 usedallele</code></pre></div>
 <pre><code>## [1] &quot;G&quot; &quot;C&quot; &quot;C&quot; &quot;A&quot; &quot;C&quot; &quot;C&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;C&quot; &quot;T&quot; &quot;C&quot; &quot;T&quot; &quot;C&quot; &quot;C&quot; &quot;G&quot; &quot;A&quot; &quot;G&quot;
