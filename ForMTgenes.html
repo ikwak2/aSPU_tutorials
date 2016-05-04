@@ -88,7 +88,7 @@ rs7515488       1       1163804 0.13    0.87    0.11    0.96    0.42    0.11
 rs3813199       1       1158277 0.20    0.64    0.27    0.65    0.40    0.65
 rs6603781       1       1158631 0.33    0.68    0.90    0.37    0.35    0.79
 </code></pre>
-<p>I made a Perl program, <a href="processGene.pl" class="uri">processGene.pl</a>, to process magma outcome, <a href="data/myrsidout.genes.annot">myrsidout.genes.annot</a>. The Usage is : ./processGene.pl “Magma Result” “Folder Name”</p>
+<p>I made a Perl program, <a href="perl/processGene.pl" class="uri">processGene.pl</a>, to process magma outcome, <a href="data/myrsidout.genes.annot">myrsidout.genes.annot</a>. The Usage is : ./processGene.pl “Magma Result” “Folder Name”</p>
 <pre><code>bash-3.2$ ./processGene.pl myrsidout.genes.annot exGenes
 SSU72  25</code></pre>
 <p>It also shows a Gene name with maximum number of SNPs are mapped. The biggest gene in our example is <em>SSU72</em> which have 25 SNPs mapped. The program make <code>exGenes</code> directory and save results there.</p>
