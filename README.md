@@ -16,4 +16,5 @@ This [tutorial](http://www.tc.umn.edu/~ikwak/tutorials/index.html) illustrate ho
    - Adaptive Gene- and Pathway- Trait Association testing with GWAS Summary Statistics (aSPUs() and aSPUsPath())
  - [Vignette for MTaSPUsSet](http://www.tc.umn.edu/~ikwak/tutorials/MTaSPUsSet.html)
    - Adaptive Gene - Multitrait Association testing with GWAS Summary Statistics (MTaSPUsSet() ) 
- 
+
+Part of the data here downloaded from [GIANT consortium data files](https://www.broadinstitute.org/collaboration/giant/index.php/GIANT_consortium_data_files) website. Data is originally from [Randall JC, Winkler TW, Kutalik Z, Berndt SI, Jackson AU, Monda KL, Kilpeläinen TO, Esko T, Mägi R, Li S, et al.](http://www.ncbi.nlm.nih.gov/pubmed/23754948?dopt=Citation) (2013). Sex-stratified genome-wide association studies including 270,000 individuals show sexual dimorphism in genetic loci for anthropometric traits. PLoS Genet 9: e1003500.
