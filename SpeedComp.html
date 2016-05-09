@@ -163,7 +163,7 @@ t2 &lt;-<span class="st"> </span><span class="kw">proc.time</span>()</code></pre
 <pre><code>##  user  system elapsed
 ##  2.730   0.400   3.136</code></pre>
 <p>Yes, it is super fast. It is more than 4 times faster then any other methods that I compared here.</p>
-<p>Next one is using <code>perl</code>. I was just curious and tried it. I write a perl code, <a href="perl/TakeSubDat.pl">TakeSubDat.pl</a> for this.</p>
+<p>Next one is using <code>perl</code>. I write a perl code, <a href="perl/TakeSubDat.pl">TakeSubDat.pl</a> for this.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t1 &lt;-<span class="st"> </span><span class="kw">proc.time</span>()
 cmd2run &lt;-<span class="st"> &quot;./TakeSubDat.pl AGRN.txt GiantdatAl.txt &gt; exdat2.txt&quot;</span>
 <span class="kw">system</span>(cmd2run)
