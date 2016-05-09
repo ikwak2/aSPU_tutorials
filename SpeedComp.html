@@ -109,7 +109,7 @@ t2 &lt;-<span class="st"> </span><span class="kw">proc.time</span>()</code></pre
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t2 -<span class="st"> </span>t1</code></pre></div>
 <pre><code>##   user  system elapsed
 ## 29.053   0.935  30.175</code></pre>
-<p>Now, I tried the same job using <a href="https://github.com/hadley/dplyr">dplyr</a> and <a href="https://github.com/hadley/readr">readr</a>. The packages are coded under C++ using Rcpp.</p>
+<p>Now, I tried the same job using <a href="https://github.com/hadley/dplyr">dplyr</a> and <a href="https://github.com/hadley/readr">readr</a>. </p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
 <span class="kw">library</span>(dplyr)
 ### in R , using readr and dplyr ###
@@ -134,7 +134,7 @@ t2 &lt;-<span class="st"> </span><span class="kw">proc.time</span>()</code></pre
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t2 -<span class="st"> </span>t1</code></pre></div>
 <pre><code>##   user  system elapsed
 ## 14.059   0.632  14.788</code></pre>
-<p>Using <code>readr</code> and <code>dplyr</code> this data manipulation can be done about 2 times faster.</p>
+<p>The packages are coded under C++ using Rcpp. Using <code>readr</code> and <code>dplyr</code> this data manipulation can be done about 2 times faster.</p>
 <p>Let’s try <a href="https://github.com/Rdatatable/data.table/wiki">data.table</a> next. It is reported that <code>fread</code> function in <code>data.table</code> package is a bit faster since the function is coded using pure C.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(data.table)
 ### in R using data.table  ###
