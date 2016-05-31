@@ -14,6 +14,8 @@ This [tutorial](http://www.tc.umn.edu/~ikwak/tutorials/index.html) illustrate ho
    - Assume we have multi-trait summary statistics data for mapped SNPs from [Mapping Snp to Gene](http://www.tc.umn.edu/~ikwak/tutorials/mappingSnpToGene2.html), this page illustrate how to perform aSPUs or MTaSPUsSet test using Summary Statistics data.
  - [Speed comparison using R, awk and Perl](http://www.tc.umn.edu/~ikwak/tutorials/SpeedComp.html)
    - I used `awk` in some tutorials. I do some speed comparison here.
+ - [Pathway data manipulation](http://www.tc.umn.edu/~ikwak/tutorials/pathwayMani.html)
+   - Where to get pathways(or gene sets) and how to manipulate.
  - [Vignette for aSPUs and aSPUsPath](http://www.tc.umn.edu/~ikwak/tutorials/aSPUstat.html)
    - Adaptive Gene- and Pathway- Trait Association testing with GWAS Summary Statistics (aSPUs() and aSPUsPath())
  - [Vignette for MTaSPUsSet](http://www.tc.umn.edu/~ikwak/tutorials/MTaSPUsSet.html)
